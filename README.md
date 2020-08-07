@@ -18,7 +18,7 @@ npm root -g
 Hit f1 on keyboard open user settings and set 
 
 ```json
-"typescript.tsdk": "{your_global_npm_path}/vscode-typescript/typescript/lib"
+"typescript.tsdk": "{your_global_npm_path}/vscode-typescript/lib"
 ```
 
 restart is not needed.
