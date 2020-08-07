@@ -1,0 +1,183 @@
+{
+  "bundle": {
+    "commonSourceDirectory": "../../src",
+    "sourceFiles": [
+      "../../src/typescriptServices/typescriptServices.ts"
+    ],
+    "js": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 13,
+          "kind": "prologue",
+          "data": "use strict"
+        },
+        {
+          "pos": 14,
+          "end": 341,
+          "kind": "emitHelpers",
+          "data": "typescript:spreadArrays"
+        },
+        {
+          "pos": 342,
+          "end": 724,
+          "kind": "emitHelpers",
+          "data": "typescript:assign"
+        },
+        {
+          "pos": 725,
+          "end": 953,
+          "kind": "emitHelpers",
+          "data": "typescript:makeTemplateObject"
+        },
+        {
+          "pos": 954,
+          "end": 2744,
+          "kind": "emitHelpers",
+          "data": "typescript:generator"
+        },
+        {
+          "pos": 2745,
+          "end": 3235,
+          "kind": "emitHelpers",
+          "data": "typescript:rest"
+        },
+        {
+          "pos": 3236,
+          "end": 3821,
+          "kind": "emitHelpers",
+          "data": "typescript:extends"
+        },
+        {
+          "pos": 3822,
+          "end": 12532,
+          "kind": "prepend",
+          "data": "./shims.js",
+          "texts": [
+            {
+              "pos": 3822,
+              "end": 12532,
+              "kind": "text"
+            }
+          ]
+        },
+        {
+          "pos": 12532,
+          "end": 6547415,
+          "kind": "prepend",
+          "data": "./compiler.js",
+          "texts": [
+            {
+              "pos": 12532,
+              "end": 6547415,
+              "kind": "text"
+            }
+          ]
+        },
+        {
+          "pos": 6547415,
+          "end": 6567068,
+          "kind": "prepend",
+          "data": "./jsTyping.js",
+          "texts": [
+            {
+              "pos": 6547415,
+              "end": 6567068,
+              "kind": "text"
+            }
+          ]
+        },
+        {
+          "pos": 6567068,
+          "end": 8701987,
+          "kind": "prepend",
+          "data": "./services.js",
+          "texts": [
+            {
+              "pos": 6567068,
+              "end": 8701987,
+              "kind": "text"
+            }
+          ]
+        },
+        {
+          "pos": 8701987,
+          "end": 8792287,
+          "kind": "prepend",
+          "data": "./compat.js",
+          "texts": [
+            {
+              "pos": 8701987,
+              "end": 8792287,
+              "kind": "text"
+            }
+          ]
+        }
+      ]
+    },
+    "dts": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 0,
+          "kind": "prepend",
+          "data": "./shims.d.ts",
+          "texts": []
+        },
+        {
+          "pos": 0,
+          "end": 288294,
+          "kind": "prepend",
+          "data": "./compiler.d.ts",
+          "texts": [
+            {
+              "pos": 0,
+              "end": 288294,
+              "kind": "text"
+            }
+          ]
+        },
+        {
+          "pos": 288294,
+          "end": 291381,
+          "kind": "prepend",
+          "data": "./jsTyping.d.ts",
+          "texts": [
+            {
+              "pos": 288294,
+              "end": 291381,
+              "kind": "text"
+            }
+          ]
+        },
+        {
+          "pos": 291381,
+          "end": 345257,
+          "kind": "prepend",
+          "data": "./services.d.ts",
+          "texts": [
+            {
+              "pos": 291381,
+              "end": 345257,
+              "kind": "text"
+            }
+          ]
+        },
+        {
+          "pos": 345257,
+          "end": 442406,
+          "kind": "prepend",
+          "data": "./compat.d.ts",
+          "texts": [
+            {
+              "pos": 345257,
+              "end": 442406,
+              "kind": "text"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "version": "4.0.0-dev"
+}

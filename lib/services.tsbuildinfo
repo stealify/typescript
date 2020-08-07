@@ -1,0 +1,529 @@
+{
+  "bundle": {
+    "commonSourceDirectory": "../../src",
+    "sourceFiles": [
+      "../../src/services/types.ts",
+      "../../src/services/utilities.ts",
+      "../../src/services/classifier.ts",
+      "../../src/services/stringCompletions.ts",
+      "../../src/services/completions.ts",
+      "../../src/services/documentHighlights.ts",
+      "../../src/services/documentRegistry.ts",
+      "../../src/services/importTracker.ts",
+      "../../src/services/findAllReferences.ts",
+      "../../src/services/callHierarchy.ts",
+      "../../src/services/getEditsForFileRename.ts",
+      "../../src/services/goToDefinition.ts",
+      "../../src/services/jsDoc.ts",
+      "../../src/services/navigateTo.ts",
+      "../../src/services/navigationBar.ts",
+      "../../src/services/organizeImports.ts",
+      "../../src/services/outliningElementsCollector.ts",
+      "../../src/services/patternMatcher.ts",
+      "../../src/services/preProcess.ts",
+      "../../src/services/rename.ts",
+      "../../src/services/smartSelection.ts",
+      "../../src/services/signatureHelp.ts",
+      "../../src/services/sourcemaps.ts",
+      "../../src/services/suggestionDiagnostics.ts",
+      "../../src/services/symbolDisplay.ts",
+      "../../src/services/transpile.ts",
+      "../../src/services/formatting/formattingContext.ts",
+      "../../src/services/formatting/formattingScanner.ts",
+      "../../src/services/formatting/rule.ts",
+      "../../src/services/formatting/rules.ts",
+      "../../src/services/formatting/rulesMap.ts",
+      "../../src/services/formatting/formatting.ts",
+      "../../src/services/formatting/smartIndenter.ts",
+      "../../src/services/textChanges.ts",
+      "../../src/services/codeFixProvider.ts",
+      "../../src/services/refactorProvider.ts",
+      "../../src/services/codefixes/addConvertToUnknownForNonOverlappingTypes.ts",
+      "../../src/services/codefixes/addEmptyExportDeclaration.ts",
+      "../../src/services/codefixes/addMissingAsync.ts",
+      "../../src/services/codefixes/addMissingAwait.ts",
+      "../../src/services/codefixes/addMissingConst.ts",
+      "../../src/services/codefixes/addMissingDeclareProperty.ts",
+      "../../src/services/codefixes/addMissingInvocationForDecorator.ts",
+      "../../src/services/codefixes/addNameToNamelessParameter.ts",
+      "../../src/services/codefixes/annotateWithTypeFromJSDoc.ts",
+      "../../src/services/codefixes/convertFunctionToEs6Class.ts",
+      "../../src/services/codefixes/convertToAsyncFunction.ts",
+      "../../src/services/codefixes/convertToEs6Module.ts",
+      "../../src/services/codefixes/correctQualifiedNameToIndexedAccessType.ts",
+      "../../src/services/codefixes/convertToTypeOnlyExport.ts",
+      "../../src/services/codefixes/convertToTypeOnlyImport.ts",
+      "../../src/services/codefixes/fixClassIncorrectlyImplementsInterface.ts",
+      "../../src/services/codefixes/importFixes.ts",
+      "../../src/services/codefixes/fixImplicitThis.ts",
+      "../../src/services/codefixes/fixIncorrectNamedTupleSyntax.ts",
+      "../../src/services/codefixes/fixSpelling.ts",
+      "../../src/services/codefixes/returnValueCorrect.ts",
+      "../../src/services/codefixes/fixAddMissingMember.ts",
+      "../../src/services/codefixes/fixAddMissingNewOperator.ts",
+      "../../src/services/codefixes/fixCannotFindModule.ts",
+      "../../src/services/codefixes/fixClassDoesntImplementInheritedAbstractMember.ts",
+      "../../src/services/codefixes/fixClassSuperMustPrecedeThisAccess.ts",
+      "../../src/services/codefixes/fixConstructorForDerivedNeedSuperCall.ts",
+      "../../src/services/codefixes/fixEnableExperimentalDecorators.ts",
+      "../../src/services/codefixes/fixEnableJsxFlag.ts",
+      "../../src/services/codefixes/fixModuleAndTargetOptions.ts",
+      "../../src/services/codefixes/fixPropertyAssignment.ts",
+      "../../src/services/codefixes/fixExtendsInterfaceBecomesImplements.ts",
+      "../../src/services/codefixes/fixForgottenThisPropertyAccess.ts",
+      "../../src/services/codefixes/fixInvalidJsxCharacters.ts",
+      "../../src/services/codefixes/fixUnusedIdentifier.ts",
+      "../../src/services/codefixes/fixUnreachableCode.ts",
+      "../../src/services/codefixes/fixUnusedLabel.ts",
+      "../../src/services/codefixes/fixJSDocTypes.ts",
+      "../../src/services/codefixes/fixMissingCallParentheses.ts",
+      "../../src/services/codefixes/fixAwaitInSyncFunction.ts",
+      "../../src/services/codefixes/fixPropertyOverrideAccessor.ts",
+      "../../src/services/codefixes/inferFromUsage.ts",
+      "../../src/services/codefixes/fixReturnTypeInAsyncFunction.ts",
+      "../../src/services/codefixes/disableJsDiagnostics.ts",
+      "../../src/services/codefixes/helpers.ts",
+      "../../src/services/codefixes/generateAccessors.ts",
+      "../../src/services/codefixes/fixInvalidImportSyntax.ts",
+      "../../src/services/codefixes/fixStrictClassInitialization.ts",
+      "../../src/services/codefixes/requireInTs.ts",
+      "../../src/services/codefixes/useDefaultImport.ts",
+      "../../src/services/codefixes/useBigintLiteral.ts",
+      "../../src/services/codefixes/fixAddModuleReferTypeMissingTypeof.ts",
+      "../../src/services/codefixes/wrapJsxInFragment.ts",
+      "../../src/services/codefixes/convertToMappedObjectType.ts",
+      "../../src/services/codefixes/removeAccidentalCallParentheses.ts",
+      "../../src/services/codefixes/removeUnnecessaryAwait.ts",
+      "../../src/services/codefixes/splitTypeOnlyImport.ts",
+      "../../src/services/codefixes/convertConstToLet.ts",
+      "../../src/services/codefixes/fixExpectedComma.ts",
+      "../../src/services/refactors/convertExport.ts",
+      "../../src/services/refactors/convertImport.ts",
+      "../../src/services/refactors/convertToOptionalChainExpression.ts",
+      "../../src/services/refactors/convertOverloadListToSingleSignature.ts",
+      "../../src/services/refactors/extractSymbol.ts",
+      "../../src/services/refactors/extractType.ts",
+      "../../src/services/refactors/generateGetAccessorAndSetAccessor.ts",
+      "../../src/services/refactors/moveToNewFile.ts",
+      "../../src/services/refactors/addOrRemoveBracesToArrowFunction.ts",
+      "../../src/services/refactors/convertParamsToDestructuredObject.ts",
+      "../../src/services/refactors/convertStringOrTemplateLiteral.ts",
+      "../../src/services/refactors/convertArrowFunctionOrFunctionExpression.ts",
+      "../../src/services/services.ts",
+      "../../src/services/breakpoints.ts",
+      "../../src/services/transform.ts",
+      "../../src/services/shims.ts",
+      "../../src/services/globalThisShim.ts",
+      "../../src/services/exportAsModule.ts"
+    ],
+    "js": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 13,
+          "kind": "prologue",
+          "data": "use strict"
+        },
+        {
+          "pos": 14,
+          "end": 396,
+          "kind": "emitHelpers",
+          "data": "typescript:assign"
+        },
+        {
+          "pos": 397,
+          "end": 724,
+          "kind": "emitHelpers",
+          "data": "typescript:spreadArrays"
+        },
+        {
+          "pos": 725,
+          "end": 1215,
+          "kind": "emitHelpers",
+          "data": "typescript:rest"
+        },
+        {
+          "pos": 1216,
+          "end": 1801,
+          "kind": "emitHelpers",
+          "data": "typescript:extends"
+        },
+        {
+          "pos": 1802,
+          "end": 2136721,
+          "kind": "text"
+        }
+      ],
+      "sources": {
+        "prologues": [
+          {
+            "file": 0,
+            "text": "",
+            "directives": [
+              {
+                "pos": -1,
+                "end": -1,
+                "expression": {
+                  "pos": -1,
+                  "end": -1,
+                  "text": "use strict"
+                }
+              }
+            ]
+          }
+        ],
+        "helpers": [
+          "typescript:assign",
+          "typescript:spreadArrays",
+          "typescript:rest",
+          "typescript:extends"
+        ]
+      }
+    },
+    "dts": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 257,
+          "kind": "text"
+        },
+        {
+          "pos": 257,
+          "end": 314,
+          "kind": "internal"
+        },
+        {
+          "pos": 315,
+          "end": 397,
+          "kind": "text"
+        },
+        {
+          "pos": 397,
+          "end": 482,
+          "kind": "internal"
+        },
+        {
+          "pos": 483,
+          "end": 862,
+          "kind": "text"
+        },
+        {
+          "pos": 862,
+          "end": 931,
+          "kind": "internal"
+        },
+        {
+          "pos": 932,
+          "end": 997,
+          "kind": "text"
+        },
+        {
+          "pos": 997,
+          "end": 1065,
+          "kind": "internal"
+        },
+        {
+          "pos": 1066,
+          "end": 1639,
+          "kind": "text"
+        },
+        {
+          "pos": 1639,
+          "end": 1763,
+          "kind": "internal"
+        },
+        {
+          "pos": 1764,
+          "end": 2331,
+          "kind": "text"
+        },
+        {
+          "pos": 2331,
+          "end": 2401,
+          "kind": "internal"
+        },
+        {
+          "pos": 2402,
+          "end": 3382,
+          "kind": "text"
+        },
+        {
+          "pos": 3382,
+          "end": 3591,
+          "kind": "internal"
+        },
+        {
+          "pos": 3592,
+          "end": 3916,
+          "kind": "text"
+        },
+        {
+          "pos": 3916,
+          "end": 3962,
+          "kind": "internal"
+        },
+        {
+          "pos": 3963,
+          "end": 5892,
+          "kind": "text"
+        },
+        {
+          "pos": 5892,
+          "end": 6722,
+          "kind": "internal"
+        },
+        {
+          "pos": 6723,
+          "end": 8771,
+          "kind": "text"
+        },
+        {
+          "pos": 8771,
+          "end": 9127,
+          "kind": "internal"
+        },
+        {
+          "pos": 9128,
+          "end": 9555,
+          "kind": "text"
+        },
+        {
+          "pos": 9555,
+          "end": 10285,
+          "kind": "internal"
+        },
+        {
+          "pos": 10286,
+          "end": 10292,
+          "kind": "text"
+        },
+        {
+          "pos": 10292,
+          "end": 10319,
+          "kind": "internal"
+        },
+        {
+          "pos": 10320,
+          "end": 19572,
+          "kind": "text"
+        },
+        {
+          "pos": 19572,
+          "end": 19702,
+          "kind": "internal"
+        },
+        {
+          "pos": 19703,
+          "end": 22002,
+          "kind": "text"
+        },
+        {
+          "pos": 22002,
+          "end": 22116,
+          "kind": "internal"
+        },
+        {
+          "pos": 22117,
+          "end": 28736,
+          "kind": "text"
+        },
+        {
+          "pos": 28736,
+          "end": 28846,
+          "kind": "internal"
+        },
+        {
+          "pos": 28847,
+          "end": 36098,
+          "kind": "text"
+        },
+        {
+          "pos": 36098,
+          "end": 36147,
+          "kind": "internal"
+        },
+        {
+          "pos": 36148,
+          "end": 36328,
+          "kind": "text"
+        },
+        {
+          "pos": 36328,
+          "end": 36354,
+          "kind": "internal"
+        },
+        {
+          "pos": 36355,
+          "end": 49931,
+          "kind": "text"
+        },
+        {
+          "pos": 49931,
+          "end": 51414,
+          "kind": "internal"
+        },
+        {
+          "pos": 51415,
+          "end": 51417,
+          "kind": "text"
+        },
+        {
+          "pos": 51417,
+          "end": 75633,
+          "kind": "internal"
+        },
+        {
+          "pos": 75634,
+          "end": 75791,
+          "kind": "text"
+        },
+        {
+          "pos": 75791,
+          "end": 76488,
+          "kind": "internal"
+        },
+        {
+          "pos": 76489,
+          "end": 76491,
+          "kind": "text"
+        },
+        {
+          "pos": 76491,
+          "end": 82052,
+          "kind": "internal"
+        },
+        {
+          "pos": 82053,
+          "end": 82184,
+          "kind": "text"
+        },
+        {
+          "pos": 82184,
+          "end": 82440,
+          "kind": "internal"
+        },
+        {
+          "pos": 82441,
+          "end": 86359,
+          "kind": "text"
+        },
+        {
+          "pos": 86359,
+          "end": 86439,
+          "kind": "internal"
+        },
+        {
+          "pos": 86440,
+          "end": 86477,
+          "kind": "text"
+        },
+        {
+          "pos": 86477,
+          "end": 86704,
+          "kind": "internal"
+        },
+        {
+          "pos": 86705,
+          "end": 86905,
+          "kind": "text"
+        },
+        {
+          "pos": 86905,
+          "end": 87070,
+          "kind": "internal"
+        },
+        {
+          "pos": 87071,
+          "end": 87073,
+          "kind": "text"
+        },
+        {
+          "pos": 87073,
+          "end": 105346,
+          "kind": "internal"
+        },
+        {
+          "pos": 105347,
+          "end": 105505,
+          "kind": "text"
+        },
+        {
+          "pos": 105505,
+          "end": 108947,
+          "kind": "internal"
+        },
+        {
+          "pos": 108948,
+          "end": 109618,
+          "kind": "text"
+        },
+        {
+          "pos": 109618,
+          "end": 109828,
+          "kind": "internal"
+        },
+        {
+          "pos": 109829,
+          "end": 109831,
+          "kind": "text"
+        },
+        {
+          "pos": 109831,
+          "end": 142990,
+          "kind": "internal"
+        },
+        {
+          "pos": 142991,
+          "end": 143100,
+          "kind": "text"
+        },
+        {
+          "pos": 143100,
+          "end": 143314,
+          "kind": "internal"
+        },
+        {
+          "pos": 143315,
+          "end": 144010,
+          "kind": "text"
+        },
+        {
+          "pos": 144010,
+          "end": 144467,
+          "kind": "internal"
+        },
+        {
+          "pos": 144468,
+          "end": 144650,
+          "kind": "text"
+        },
+        {
+          "pos": 144650,
+          "end": 145499,
+          "kind": "internal"
+        },
+        {
+          "pos": 145500,
+          "end": 145801,
+          "kind": "text"
+        },
+        {
+          "pos": 145801,
+          "end": 146016,
+          "kind": "internal"
+        },
+        {
+          "pos": 146017,
+          "end": 146513,
+          "kind": "text"
+        },
+        {
+          "pos": 146513,
+          "end": 161690,
+          "kind": "internal"
+        }
+      ]
+    }
+  },
+  "version": "4.0.0-dev"
+}

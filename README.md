@@ -10,7 +10,7 @@ IntelliSense and Type Checking Support for .cjs and .mjs file extensions.
 ## Usage with vscode
 
 ```js
-npm i -g vscode-typescript@npm:@stealify/typescript
+npm i -g vscode-typescript@https://github.com/stealify/typescript
 npm root -g
 ```
 

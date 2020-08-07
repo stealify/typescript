@@ -1,0 +1,109 @@
+{
+  "bundle": {
+    "commonSourceDirectory": "../../src",
+    "sourceFiles": [
+      "../../src/jsTyping/shared.ts",
+      "../../src/jsTyping/types.ts",
+      "../../src/jsTyping/jsTyping.ts"
+    ],
+    "js": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 13,
+          "kind": "prologue",
+          "data": "use strict"
+        },
+        {
+          "pos": 14,
+          "end": 19667,
+          "kind": "text"
+        }
+      ],
+      "sources": {
+        "prologues": [
+          {
+            "file": 0,
+            "text": "",
+            "directives": [
+              {
+                "pos": -1,
+                "end": -1,
+                "expression": {
+                  "pos": -1,
+                  "end": -1,
+                  "text": "use strict"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "dts": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 420,
+          "kind": "text"
+        },
+        {
+          "pos": 420,
+          "end": 1775,
+          "kind": "internal"
+        },
+        {
+          "pos": 1776,
+          "end": 2127,
+          "kind": "text"
+        },
+        {
+          "pos": 2127,
+          "end": 2244,
+          "kind": "internal"
+        },
+        {
+          "pos": 2245,
+          "end": 3137,
+          "kind": "text"
+        },
+        {
+          "pos": 3137,
+          "end": 3313,
+          "kind": "internal"
+        },
+        {
+          "pos": 3314,
+          "end": 4442,
+          "kind": "text"
+        },
+        {
+          "pos": 4442,
+          "end": 4931,
+          "kind": "internal"
+        },
+        {
+          "pos": 4932,
+          "end": 5226,
+          "kind": "text"
+        },
+        {
+          "pos": 5226,
+          "end": 5400,
+          "kind": "internal"
+        },
+        {
+          "pos": 5401,
+          "end": 5403,
+          "kind": "text"
+        },
+        {
+          "pos": 5403,
+          "end": 8354,
+          "kind": "internal"
+        }
+      ]
+    }
+  },
+  "version": "4.0.0-dev"
+}
