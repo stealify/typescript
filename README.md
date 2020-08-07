@@ -66,3 +66,8 @@ rm -rf lib-diff
 git add lib *.patch
 git commit -am "package.json.version"
 ```
+
+
+## Related Projects
+- https://github.com/microsoft/vscode-typescript-next
+- https://github.com/direktspeed/vscode-language-server-rollup
