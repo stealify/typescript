@@ -1,0 +1,1 @@
+export const maxInterval: 'module-with-dts.d.ts';
