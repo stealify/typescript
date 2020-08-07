@@ -11,13 +11,17 @@ IntelliSense and Type Checking Support for .cjs and .mjs file extensions.
 
 ```js
 npm i -g vscode-typescript@https://github.com/stealify/typescript
+# Getting global path
 npm root -g
 ```
 
 Hit f1 on keyboard open user settings and set 
 
-"typescript.tsdk": "{your_global_npm_path}/@stealify/typescript/lib"
+```json
+"typescript.tsdk": "{your_global_npm_path}/vscode-typescript/typescript/lib"
+```
 
+restart is not needed.
 
 ## Build
 Use version tag of package.json to identify the need of a rebuild.

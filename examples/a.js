@@ -1,0 +1,2 @@
+const j = require('./other')
+

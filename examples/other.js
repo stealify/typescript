@@ -1,0 +1,1 @@
+const ah = require('./b')
