@@ -1473,7 +1473,7 @@ declare namespace ts.server.protocol {
          */
         projectRootPath?: string;
     }
-    type ScriptKindName = "TS" | "JS" | "TSX" | "JSX";
+    type ScriptKindName = "TS" | "JS" | "TSX" | "JSX" | "MJS" | "CJS";
     /**
      * Open request; value of command field is "open". Notify the
      * server that the client has file open.  The server will not
@@ -3312,7 +3312,6 @@ declare namespace ts.server {
         resolveModuleNames(moduleNames: string[], containingFile: string, reusedNames?: string[], redirectedReference?: ResolvedProjectReference): (ResolvedModuleFull | undefined)[];
         getResolvedModuleWithFailedLookupLocationsFromCache(moduleName: string, containingFile: string): ResolvedModuleWithFailedLookupLocations | undefined;
         resolveTypeReferenceDirectives(typeDirectiveNames: string[], containingFile: string, redirectedReference?: ResolvedProjectReference): (ResolvedTypeReferenceDirective | undefined)[];
-        includeTripleslashReferencesFrom(containingFile: string): boolean;
         directoryExists(path: string): boolean;
         getDirectories(path: string): string[];
         getCachedDirectoryStructureHost(): CachedDirectoryStructureHost;

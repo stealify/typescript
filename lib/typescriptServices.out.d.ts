@@ -2881,7 +2881,9 @@ declare namespace ts {
          * Used on extensions that doesn't define the ScriptKind but the content defines it.
          * Deferred extensions are going to be included in all project contexts.
          */
-        Deferred = 7
+        Deferred = 7,
+        MJS = 8,
+        CJS = 9
     }
     export const enum ScriptTarget {
         ES3 = 0,
@@ -2991,8 +2993,8 @@ declare namespace ts {
         Tsx = ".tsx",
         Dts = ".d.ts",
         Js = ".js",
-        Cjs = ".cjs",
         Mjs = ".mjs",
+        Cjs = ".cjs",
         Jsx = ".jsx",
         Json = ".json",
         TsBuildInfo = ".tsbuildinfo"
@@ -4293,6 +4295,7 @@ declare namespace ts {
     function isTypeLiteralNode(node: Node): node is TypeLiteralNode;
     function isArrayTypeNode(node: Node): node is ArrayTypeNode;
     function isTupleTypeNode(node: Node): node is TupleTypeNode;
+    function isNamedTupleMember(node: Node): node is NamedTupleMember;
     function isOptionalTypeNode(node: Node): node is OptionalTypeNode;
     function isRestTypeNode(node: Node): node is RestTypeNode;
     function isUnionTypeNode(node: Node): node is UnionTypeNode;
@@ -4468,7 +4471,6 @@ declare namespace ts {
      */
     export function parseJsonText(fileName: string, sourceText: string): JsonSourceFile;
     export function isExternalModule(file: SourceFile): boolean;
-    export function isCommonJsModule(file: SourceFile): boolean;
     export function updateSourceFile(sourceFile: SourceFile, newText: string, textChangeRange: TextChangeRange, aggressiveChecks?: boolean): SourceFile;
     export {};
 }
@@ -6155,9 +6157,9 @@ declare namespace ts {
         dtsModifier = ".d.ts",
         tsModifier = ".ts",
         tsxModifier = ".tsx",
-        cjsModifier = ".cjs",
-        mjsModifier = ".mjs",
         jsModifier = ".js",
+        mjsModifier = ".mjs",
+        cjsModifier = ".cjs",
         jsxModifier = ".jsx",
         jsonModifier = ".json"
     }

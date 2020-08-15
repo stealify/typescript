@@ -50,72 +50,72 @@
         },
         {
           "pos": 3822,
-          "end": 6538705,
+          "end": 6538756,
           "kind": "prepend",
           "data": "./compiler.js",
           "texts": [
             {
               "pos": 3822,
-              "end": 6538705,
+              "end": 6538756,
               "kind": "text"
             }
           ]
         },
         {
-          "pos": 6538705,
-          "end": 8673624,
+          "pos": 6538756,
+          "end": 8674399,
           "kind": "prepend",
           "data": "./services.js",
           "texts": [
             {
-              "pos": 6538705,
-              "end": 8673624,
+              "pos": 6538756,
+              "end": 8674399,
               "kind": "text"
             }
           ]
         },
         {
-          "pos": 8673624,
-          "end": 8693277,
+          "pos": 8674399,
+          "end": 8694052,
           "kind": "prepend",
           "data": "./jsTyping.js",
           "texts": [
             {
-              "pos": 8673624,
-              "end": 8693277,
+              "pos": 8674399,
+              "end": 8694052,
               "kind": "text"
             }
           ]
         },
         {
-          "pos": 8693277,
-          "end": 9269502,
+          "pos": 8694052,
+          "end": 9268730,
           "kind": "prepend",
           "data": "./server.js",
           "texts": [
             {
-              "pos": 8693277,
-              "end": 9269502,
+              "pos": 8694052,
+              "end": 9268730,
               "kind": "text"
             }
           ]
         },
         {
-          "pos": 9269502,
-          "end": 9359802,
+          "pos": 9268730,
+          "end": 9359030,
           "kind": "prepend",
           "data": "./compat.js",
           "texts": [
             {
-              "pos": 9269502,
-              "end": 9359802,
+              "pos": 9268730,
+              "end": 9359030,
               "kind": "text"
             }
           ]
         },
         {
-          "pos": 9359802,
-          "end": 9403319,
+          "pos": 9359030,
+          "end": 9402547,
           "kind": "text"
         }
       ],
