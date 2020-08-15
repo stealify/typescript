@@ -23,7 +23,29 @@ Hit f1 on keyboard open user settings and set
 
 restart is not needed.
 
-## Build
+
+
+
+
+
+# !Importent as tester or user you do not need to build
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Build This is only for internal use as reminer till it is merged
 Use version tag of package.json to identify the need of a rebuild.
 
 ```
