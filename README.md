@@ -57,7 +57,7 @@ npm install
 
 
 # Method 1 Patch Directly before build
-wget -q -O - https://patch-diff.githubusercontent.com/raw/microsoft/TypeScript/pull/39840.patch | git apply -v
+wget -q -O - https://patch-diff.githubusercontent.com/raw/microsoft/TypeScript/pull/<newpullid>.patch | git apply -v
 npm run build:compiler
 rm -rf lib node_modules
 mv built/local lib
@@ -68,7 +68,7 @@ mv built/local lib
 npm run build:compiler
 mv built/local lib-diff
 
-wget -q -O - https://patch-diff.githubusercontent.com/raw/microsoft/TypeScript/pull/39840.patch | git apply -v
+wget -q -O - https://patch-diff.githubusercontent.com/raw/microsoft/TypeScript/pull/<newpullid>.patch | git apply -v
 npm run build:compiler
 rm -rf lib node_modules 
 mv built/local lib
