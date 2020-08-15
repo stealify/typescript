@@ -1,11 +1,21 @@
 # vscode-typescript
-Version: c1fa9e1
+
+![Image of Working Installation](https://github.com/stealify/typescript/raw/stealify-typescript.png)
+
+
+Version: https://github.com/direktspeed/TypeScript/tree/mjs
 IntelliSense and Type Checking Support for .cjs and .mjs file extensions.
+
+Converts .mjs and .cjs => Module => Output extension.
+
+Next Step add 
+"mjs": "preserve",
+"cjs": "preserve",
+options to tsconfig.
 
 - Fixes: https://github.com/microsoft/TypeScript/issues/27957
 - Fixes: https://github.com/microsoft/TypeScript/issues/38784
-
-
+- Closes: https://github.com/microsoft/TypeScript/pull/39840
 
 ## Usage with vscode
 
