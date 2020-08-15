@@ -1,6 +1,6 @@
 # vscode-typescript
 
-![Image of Working Installation](https://github.com/stealify/typescript/raw/stealify-typescript.png)
+![Image of Working Installation](https://github.com/stealify/typescript/raw/4.1.0/stealify-typescript.png)
 
 
 Version: https://github.com/direktspeed/TypeScript/tree/mjs
