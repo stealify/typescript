@@ -56,11 +56,13 @@ jobs:
         npm run build:compiler
         export TS_VERSION=$(cat package.json | jq .version | xargs)
         export TS_NAME=TypeScript-$TS_VERSION-${{ steps.commit.outputs.hash }}
-        echo "::set-output name=version::$TS_VERSION"
-        echo "::set-output name=name::$TS_NAME"
+        echo Name: $TS_NAME
+        echo Version: $TS_VERSION
         cd built
         mv local $TS_NAME
         tar cvf - $TS_NAME | gzip -9 - > ../$TS_NAME.tar.gz
+        echo "::set-output name=version::$TS_VERSION"
+        echo "::set-output name=name::$TS_NAME"
     - name: Create Release
       if: steps.cache.outputs.cache-hit != 'true'
       id: create_release
