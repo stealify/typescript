@@ -57,6 +57,7 @@ jobs:
       run: |
         export TS_VERSION=${{ steps.version.outputs.value }}
         export TS_COMMIT=${{ steps.commit.outputs.value }}
+        cd TypeScript-master
         git init
         git add src
         git commit -am "$TS_COMMIT"
