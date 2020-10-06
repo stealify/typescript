@@ -74,16 +74,15 @@ jobs:
         tar cvf - $TS_NAME | gzip -9 - > ~/work/typescript/typescript/$TS_NAME.tar.gz
         echo "::set-output name=value::$TS_NAME"
     - name: Create Release
-      ## Fix Broken One.
-      if: steps.cache.outputs.cache-hit == 'true'
+      if: steps.cache.outputs.cache-hit != 'true'
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.version.outputs.value }}-${{ steps.commit.outputs.value }}
+        tag_name: v${{ steps.version.outputs.value }}-${{ steps.commit.outputs.value }}
         release_name: Release ${{ steps.name.outputs.value }}
-        draft: false
+        draft: true
         prerelease: true
     - name: Upload TypeScript
       if: steps.cache.outputs.cache-hit != 'true'
