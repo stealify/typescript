@@ -41,6 +41,8 @@ jobs:
     - run: wget https://patch-diff.githubusercontent.com/raw/microsoft/TypeScript/pull/40068.patch
     - run: wget https://github.com/microsoft/TypeScript/archive/master.tar.gz
     - run: |
+        git config --global user.email "frank@dspeed.eu"
+        git config --global user.name "Frank Lemanschik"
         tar xf master.tar.gz
         cd TypeScript-master
         git init
