@@ -26,7 +26,7 @@ jobs:
        export TS_COMMIT=$(git rev-parse --short $(curl --silent https://api.github.com/repos/oracle/graal/commits/master | jq .sha | xargs))
        echo $TS_COMMIT
        echo "::set-output name=hash::$TS_COMMIT"
-    - name: Cache git clone oracle/graal
+    - name: Cache Last Processed Commit.
       id: cache
       uses: actions/cache@v2.1.1
       with:
