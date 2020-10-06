@@ -23,7 +23,7 @@ jobs:
     - name: check remote updates
       id: commit
       run: |
-       export TS_COMMIT=$(git rev-parse --short $(curl --silent https://api.github.com/repos/oracle/graal/commits/master | jq .sha | xargs))
+       export TS_COMMIT=$(git rev-parse --short $(curl --silent https://api.github.com/repos/microsoft/TypeScript/commits/master | jq .sha | xargs))
        echo $TS_COMMIT
        echo "::set-output name=value::$TS_COMMIT"
     - name: Cache Last Processed Commit.
