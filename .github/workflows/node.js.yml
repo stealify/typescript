@@ -74,7 +74,8 @@ jobs:
         tar cvf - $TS_NAME | gzip -9 - > ~/work/typescript/typescript/$TS_NAME.tar.gz
         echo "::set-output name=value::$TS_NAME"
     - name: Create Release
-      if: steps.cache.outputs.cache-hit != 'true'
+      ## Fix Broken One.
+      if: steps.cache.outputs.cache-hit == 'true'
       id: create_release
       uses: actions/create-release@v1
       env:
