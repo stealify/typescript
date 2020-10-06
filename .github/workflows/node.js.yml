@@ -24,14 +24,15 @@ jobs:
       id: commit
       run: |
        export TS_COMMIT=$(git rev-parse --short $(curl --silent https://api.github.com/repos/oracle/graal/commits/master | jq .sha | xargs))
-       echo "::set-output name=hash::$(TS_COMMIT)"
+       echo $TS_COMMIT
+       echo "::set-output name=hash::$TS_COMMIT"
     - name: Cache git clone oracle/graal
       id: cache
       uses: actions/cache@v2.1.1
       with:
-       # A list of files, directories, and wildcard patterns to cache and restore
-       path: built
-       key: ${{ steps.commit.outputs.hash }}
+        # A list of files, directories, and wildcard patterns to cache and restore
+        path: built
+        key: ${{ steps.commit.outputs.hash }}
     - name: Use Node.js ${{ matrix.node-version }}
       if: steps.cache.outputs.cache-hit != 'trues'
       uses: actions/setup-node@v1
