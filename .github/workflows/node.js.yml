@@ -34,7 +34,8 @@ jobs:
         path: built
         key: ${{ steps.commit.outputs.hash }}
     - name: Use Node.js ${{ matrix.node-version }}
-      if: steps.cache.outputs.cache-hit != 'trues'
+      if: steps.cache.outputs.cache-hit != 'true'
+      id: typescript
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
@@ -53,30 +54,30 @@ jobs:
         npm install gulp fancy-log gulp-newer gulp-sourcemaps
         npm install
         npm run build:compiler
-        npm test
+        echo "::set-output name=version::$(cat package.json | jq .version | xargs)"
     - run: |
         cd built
-        mv local TypeScript-${{ steps.commit.outputs.hash }}
-        tar cvf - TypeScript-${{ steps.commit.outputs.hash }} | gzip -9 - > ../TypeScript-${{ steps.commit.outputs.hash }}.tar.gz
+        mv local TypeScript-${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}
+        tar cvf - TypeScript-${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }} | gzip -9 - > ../TypeScript-${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}.tar.gz
     - name: Create TypeScript-4.1.0-dev
-      if: steps.cache.outputs.cache-hit != 'trues'
+      if: steps.cache.outputs.cache-hit != 'true'
       id: create_release
       uses: actions/create-release@v1
       env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-         tag_name: 4.1.0-${{ steps.commit.outputs.hash }}
-         release_name: Release TypeScript-4.1.0-${{ steps.commit.outputs.hash }}
-         draft: true
+         tag_name: ${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}
+         release_name: Release TypeScript-${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}
+         draft: false
          prerelease: true
-    - name: Upload TypeScript-4.1.0-${{ steps.commit.outputs.hash }}
-      if: steps.cache.outputs.cache-hit != 'trues'
+    - name: Upload TypeScript-${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}
+      if: steps.cache.outputs.cache-hit != 'true'
       id: upload-release-asset-ce
       uses: actions/upload-release-asset@v1
       env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-         asset_path: ./TypeScript-${{ steps.commit.outputs.hash }}.tar.gz
-         asset_name: TypeScript-${{ steps.commit.outputs.hash }}.tar.gz
+         asset_path: ./TypeScript-${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}.tar.gz
+         asset_name: TypeScript-${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}.tar.gz
          asset_content_type: application/gzip
