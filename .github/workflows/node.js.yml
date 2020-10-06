@@ -33,13 +33,14 @@ jobs:
        path: built
        key: ${{ steps.commit.outputs.hash }}
     - name: Use Node.js ${{ matrix.node-version }}
-      if: steps.cache.outputs.cache-hit != 'true'
+      if: steps.cache.outputs.cache-hit != 'trues'
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - run: wget https://patch-diff.githubusercontent.com/raw/microsoft/TypeScript/pull/40068.patch
     - run: wget https://github.com/microsoft/TypeScript/archive/master.tar.gz
     - run: |
+        tar xf master.tar.gz
         cd TypeScript-master
         git init
         git add .
