@@ -66,12 +66,12 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-         tag_name: ${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}
-         release_name: Release ${{ steps.typescript.outputs.name }}
-         draft: false
-         prerelease: true
+        tag_name: ${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}
+        release_name: Release ${{ steps.typescript.outputs.name }}
+        draft: false
+        prerelease: true
     - name: Upload TypeScript
       if: steps.cache.outputs.cache-hit != 'true'
       id: upload
