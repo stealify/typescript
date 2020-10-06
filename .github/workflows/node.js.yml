@@ -50,9 +50,9 @@ jobs:
         git commit -am "${{ steps.commit.outputs.hash }}"
         git apply ../40068.patch
         git commit -am "Patched: "
-    - run: npm install gulp
-    - run: npm run build:compiler
-    - run: npm test
+        npm install gulp
+        npm run build:compiler
+        npm test
     - run: |
         cd built
         tar cvf - graalvm-ce-java15-20.3.0-dev | gzip -9 - > ../typescript-${{ steps.commit.outputs.hash }}.tar.gz
