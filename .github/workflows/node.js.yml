@@ -25,14 +25,14 @@ jobs:
       run: |
        export TS_COMMIT=$(git rev-parse --short $(curl --silent https://api.github.com/repos/oracle/graal/commits/master | jq .sha | xargs))
        echo $TS_COMMIT
-       echo "::set-output name=hash::$TS_COMMIT"
+       echo "::set-output name=value::$TS_COMMIT"
     - name: Cache Last Processed Commit.
       id: cache
       uses: actions/cache@v2.1.1
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
         path: built
-        key: ${{ steps.commit.outputs.hash }}
+        key: ${{ steps.commit.outputs.value }}
     - name: Use Node.js ${{ matrix.node-version }}
       if: steps.cache.outputs.cache-hit != 'true'
       id: typescript
@@ -45,24 +45,33 @@ jobs:
         git config --global user.email "frank@dspeed.eu"
         git config --global user.name "Frank Lemanschik"
         tar xf master.tar.gz
+    - name: check version
+      id: version
+      run: |
         cd TypeScript-master
+        export TS_VERSION=$(cat package.json | jq .version | xargs)
+        echo $TS_VERSION
+        echo "::set-output name=value::$TS_VERSION"
+    - name: Patch & Build
+      id: name
+      run: |
+        export TS_VERSION=${{ steps.version.outputs.value }}
+        export TS_COMMIT=${{ steps.commit.outputs.value }}
         git init
         git add src
-        git commit -am "${{ steps.commit.outputs.hash }}"
+        git commit -am "$TS_COMMIT"
         git apply ../40068.patch
         git commit -am "Patched: "
         npm install gulp fancy-log gulp-newer gulp-sourcemaps
         npm install
         npm run build:compiler
-        export TS_VERSION=$(cat package.json | jq .version | xargs)
-        export TS_NAME=TypeScript-$TS_VERSION-${{ steps.commit.outputs.hash }}
+        export TS_NAME=TypeScript-$TS_VERSION-$TS_COMMIT
         echo Name: $TS_NAME
         echo Version: $TS_VERSION
         cd built
         mv local $TS_NAME
         tar cvf - $TS_NAME | gzip -9 - > ../$TS_NAME.tar.gz
-        echo "::set-output name=version::$TS_VERSION"
-        echo "::set-output name=name::$TS_NAME"
+        echo "::set-output name=value::$TS_NAME"
     - name: Create Release
       if: steps.cache.outputs.cache-hit != 'true'
       id: create_release
@@ -70,8 +79,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.typescript.outputs.version }}-${{ steps.commit.outputs.hash }}
-        release_name: Release ${{ steps.typescript.outputs.name }}
+        tag_name: ${{ steps.version.outputs.value }}-${{ steps.commit.outputs.value }}
+        release_name: Release ${{ steps.name.outputs.value }}
         draft: false
         prerelease: true
     - name: Upload TypeScript
@@ -82,6 +91,6 @@ jobs:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-         asset_path: ./${{ steps.typescript.outputs.name }}.tar.gz
-         asset_name: ${{ steps.typescript.outputs.name }}.tar.gz
+         asset_path: ./${{ steps.name.outputs.value }}.tar.gz
+         asset_name: ${{ steps.name.outputs.value }}.tar.gz
          asset_content_type: application/gzip
