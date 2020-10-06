@@ -1,0 +1,38 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ 4.1.0 ]
+  pull_request:
+    branches: [ 4.1.0 ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: wget https://patch-diff.githubusercontent.com/raw/microsoft/TypeScript/pull/40068.patch
+    - run: wget https://github.com/microsoft/TypeScript/archive/master.tar.gz
+    - run: |
+        cd TypeScript-master
+        git init
+        git add .
+        git commit -am ""
+        git apply ../40068.patch
+        git commit -am "Patched: "
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
