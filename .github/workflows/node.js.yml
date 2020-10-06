@@ -43,16 +43,18 @@ jobs:
     - run: |
         git config --global user.email "frank@dspeed.eu"
         git config --global user.name "Frank Lemanschik"
+        echo Hi ${{ steps.commit.outputs.hash }}
         tar xf master.tar.gz
         cd TypeScript-master
         git init
-        git add .
+        git add src
         git commit -am "${{ steps.commit.outputs.hash }}"
         git apply ../40068.patch
         git commit -am "Patched: "
-        npm install gulp
+        npm install gulp fancy-log
         npm run build:compiler
         npm test
     - run: |
         cd built
+        mv local typescript-${{ steps.commit.outputs.hash }}
         tar cvf - graalvm-ce-java15-20.3.0-dev | gzip -9 - > ../typescript-${{ steps.commit.outputs.hash }}.tar.gz
