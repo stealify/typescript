@@ -31,7 +31,7 @@ jobs:
       uses: actions/cache@v2.1.1
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
-        path: built
+        path: master.tar.gz
         key: ${{ steps.commit.outputs.value }}
     - name: Use Node.js ${{ matrix.node-version }}
       if: steps.cache.outputs.cache-hit != 'true'
@@ -71,7 +71,7 @@ jobs:
         echo Version: $TS_VERSION
         cd built
         mv local $TS_NAME
-        tar cvf - $TS_NAME | gzip -9 - > ../$TS_NAME.tar.gz
+        tar cvf - $TS_NAME | gzip -9 - > ~/work/typescript/typescript/$TS_NAME.tar.gz
         echo "::set-output name=value::$TS_NAME"
     - name: Create Release
       if: steps.cache.outputs.cache-hit != 'true'
