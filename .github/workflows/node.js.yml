@@ -50,7 +50,8 @@ jobs:
         git commit -am "${{ steps.commit.outputs.hash }}"
         git apply ../40068.patch
         git commit -am "Patched: "
-        npm install gulp fancy-log gulp-newer
+        npm install gulp fancy-log gulp-newer gulp-sourcemaps
+        npm install
         npm run build:compiler
         npm test
     - run: |
