@@ -50,8 +50,8 @@ jobs:
         git commit -am "${{ steps.commit.outputs.hash }}"
         git apply ../40068.patch
         git commit -am "Patched: "
-    - run: npm ci
-    - run: npm run build --if-present
+    - run: npm install gulp
+    - run: npm run build:compiler
     - run: npm test
     - run: |
         cd built
