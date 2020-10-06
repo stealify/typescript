@@ -20,7 +20,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: check remote updates
+      id: commit
+      run: |
+       export TS_COMMIT=$(git rev-parse --short $(curl --silent https://api.github.com/repos/oracle/graal/commits/master | jq .sha | xargs))
+       echo "::set-output name=hash::$(TS_COMMIT)"
+    - name: Cache git clone oracle/graal
+      id: cache
+      uses: actions/cache@v2.1.1
+      with:
+       # A list of files, directories, and wildcard patterns to cache and restore
+       path: built
+       key: ${{ steps.commit.outputs.hash }}
     - name: Use Node.js ${{ matrix.node-version }}
+      if: steps.cache.outputs.cache-hit != 'true'
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
@@ -30,9 +43,12 @@ jobs:
         cd TypeScript-master
         git init
         git add .
-        git commit -am ""
+        git commit -am "${{ steps.commit.outputs.hash }}"
         git apply ../40068.patch
         git commit -am "Patched: "
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - run: |
+        cd built
+        tar cvf - graalvm-ce-java15-20.3.0-dev | gzip -9 - > ../typescript-${{ steps.commit.outputs.hash }}.tar.gz
